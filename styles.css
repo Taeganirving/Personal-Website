@@ -425,3 +425,74 @@ footer{
         justify-content:center;
     }
 }
+/* SMARTPHONES & SMALL MOBILE DEVICES */
+@media (max-width: 600px) {
+    
+    /* Give content more room by reducing section side padding */
+    section {
+        padding: 80px 5%;
+    }
+
+    /* Scale down the massive hero typography so it doesn't clip */
+    .hero-content h1 {
+        font-size: 3.2rem;
+        line-height: 1.1;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    /* Wrap buttons vertically if they run out of space */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .btn, .btn-secondary {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Reduce card padding so code text actually fits */
+    .code-card {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+
+    /* Allow the preformated code to scroll horizontally if a line is too long, 
+       instead of pushing the whole website layout wide */
+    .code-card pre {
+        font-size: 0.85rem;
+        overflow-x: auto;
+        white-space: pre-wrap; /* Wraps the code lines if they hit the edge */
+        word-wrap: break-word;
+    }
+
+    /* Center the about image container on mobile */
+    .about-image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Ensure the profile image scales naturally down */
+    .about-image img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    /* Prevent the brand name text from getting too squeezed */
+    .brand-name {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    
+    /* Make contact links easily clickable touch targets */
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
