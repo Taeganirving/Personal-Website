@@ -1,498 +1,280 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & BASE SETUP
+   ========================================================================== */
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Forces padding to stay inside layout widths */
 }
 
 html{
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 }
 
 body{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    color:#E6F1FF;
-
-    overflow-x:hidden;
-
-    background:#050816;
-
-    background-image:
-    radial-gradient(
-    rgba(255,255,255,.10) 1px,
-    transparent 1px);
-
-    background-size:
-    130px 130px;
+    font-family: "Space Grotesk", sans-serif;
+    color: #E6F1FF;
+    overflow-x: hidden; /* Prevents awkward horizontal layout scrolling */
+    background: #050816;
+    background-image: radial-gradient(rgba(255, 255, 255, .10) 1px, transparent 1px);
+    background-size: 130px 130px;
 }
 
 section{
-
-    padding:120px 10%;
+    padding: 120px 10%;
 }
 
-
-/* NAV */
-
+/* ==========================================================================
+   2. NAVIGATION HEADER (DESKTOP)
+   ========================================================================== */
 header{
-
-    position:fixed;
-
-    width:100%;
-
-    top:0;
-
-    z-index:1000;
-
-    backdrop-filter:blur(18px);
-
-    background:rgba(5,8,22,.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(18px);
+    background: rgba(5, 8, 22, .7);
 }
 
 nav{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
 }
 
 nav ul{
-
-    display:flex;
-
-    gap:35px;
-
-    list-style:none;
+    display: flex;
+    gap: 35px;
+    list-style: none;
 }
 
 nav a{
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
 
-    color:white;
-
-    text-decoration:none;
+nav a:hover {
+    color: #00C2FF;
 }
 
 .logo-container{
-
-    display:flex;
-
-    gap:15px;
-
-    align-items:center;
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
 .logo-img{
-
-    width:55px;
-
-    height:55px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    overflow:hidden;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
 }
 
-
-/* HERO */
-
+/* ==========================================================================
+   3. HERO SECTION (DESKTOP)
+   ========================================================================== */
 #hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    position:relative;
-
-    overflow:hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-layout{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:100px;
-
-    width:100%;
-
-    position:relative;
-
-    z-index:2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-logo{
-
-    width:120px;
-
-    border-radius:50%;
-
-    object-fit:cover;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-
 .hero-content h1{
-
-    font-size:6rem;
-
-    line-height:.95;
+    font-size: 6rem;
+    line-height: .95;
 }
 
 .hero-content h2{
-
-    color:#00C2FF;
-
-    margin:20px 0;
+    color: #00C2FF;
+    margin: 20px 0;
 }
 
 .hero-content p{
+    max-width: 550px;
+    color: #7A8CA5;
+    margin-bottom: 40px;
+}
 
-    max-width:550px;
-
-    color:#7A8CA5;
-
-    margin-bottom:40px;
+.hero-metadata {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    color: #00C2FF;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
 .hero-buttons{
-
-    display:flex;
-
-    gap:20px;
+    display: flex;
+    gap: 20px;
 }
 
-
 /* BUTTONS */
-
 .btn,
 .btn-secondary{
-
-    padding:14px 30px;
-
-    border-radius:12px;
-
-    text-decoration:none;
+    padding: 14px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s, background 0.2s;
 }
 
 .btn{
+    background: #00C2FF;
+    color: black;
+}
 
-    background:#00C2FF;
-
-    color:black;
+.btn:hover {
+    transform: translateY(-2px);
+    background: #009ecf;
 }
 
 .btn-secondary{
-
-    border:1px solid #00C2FF;
-
-    color:white;
+    border: 1px solid #00C2FF;
+    color: white;
 }
 
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 194, 255, 0.1);
+}
 
 /* CODE CARD */
-
 .code-card{
-
-    padding:50px;
-
-    border-radius:25px;
-
-    backdrop-filter:blur(20px);
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-    0 0 60px rgba(0,194,255,.08);
+    padding: 50px;
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 0 60px rgba(0, 194, 255, .08);
 }
 
 .code-card pre{
-
-    line-height:2;
-
-    color:#bfd9ff;
+    line-height: 2;
+    color: #bfd9ff;
 }
 
-
-/* GLOWS */
-
+/* BACKGROUND GLOWS */
 .glow{
-
-    position:absolute;
-
-    border-radius:50%;
-
-    filter:blur(150px);
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(150px);
 }
 
 .glow1{
-
-    width:450px;
-
-    height:450px;
-
-    left:-100px;
-
-    top:200px;
-
-    background:#00C2FF;
-
-    opacity:.10;
+    width: 450px;
+    height: 450px;
+    left: -100px;
+    top: 200px;
+    background: #00C2FF;
+    opacity: .10;
 }
 
 .glow2{
-
-    width:450px;
-
-    height:450px;
-
-    right:100px;
-
-    bottom:0;
-
-    background:#7C3AED;
-
-    opacity:.08;
+    width: 450px;
+    height: 450px;
+    right: 100px;
+    bottom: 0;
+    background: #7C3AED;
+    opacity: .08;
 }
 
-
-/* ABOUT */
-
+/* ==========================================================================
+   4. ABOUT SECTION (DESKTOP)
+   ========================================================================== */
 #about{
-
-    display:grid;
-
-    grid-template-columns:1fr 2fr;
-
-    gap:80px;
-
-    align-items:center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
 }
 
 .about-image img{
-
-    width:320px;
-
-    border-radius:20px;
-
-    border:2px solid rgba(0,194,255,.2);
+    width: 320px;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 194, 255, .2);
 }
 
 .skills{
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-    margin-top:25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
 }
 
 .skills span{
-
-    padding:10px 18px;
-
-    border-radius:999px;
-
-    border:1px solid rgba(0,194,255,.2);
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 194, 255, .2);
 }
 
-
-/* PROJECTS */
-
+/* ==========================================================================
+   5. PROJECTS SECTION
+   ========================================================================== */
 .project-grid{
-
-    margin-top:50px;
-
-    display:grid;
-
-    gap:30px;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+    margin-top: 50px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .project-card{
-
-    padding:30px;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,.04);
-
-    backdrop-filter:blur(20px);
-
-    transition:.3s;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .04);
+    backdrop-filter: blur(20px);
+    transition: .3s;
 }
 
 .project-card:hover{
-
-    transform:translateY(-8px);
+    transform: translateY(-8px);
 }
 
-
-/* EXPERIENCE */
-
+/* ==========================================================================
+   6. EXPERIENCE & CONTACT & FOOTER
+   ========================================================================== */
 .experience-list{
-
-    display:grid;
-
-    gap:25px;
-
-    margin-top:40px;
+    display: grid;
+    gap: 25px;
+    margin-top: 40px;
 }
 
 .experience-item{
-
-    padding:25px;
-
-    border-left:3px solid #00C2FF;
-
-    background:rgba(255,255,255,.03);
+    padding: 25px;
+    border-left: 3px solid #00C2FF;
+    background: rgba(255, 255, 255, .03);
 }
 
-
-/* CONTACT */
-
 .contact-links{
-
-    display:flex;
-
-    gap:25px;
-
-    margin-top:30px;
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .contact-links a{
-
-    color:#00C2FF;
-
-    text-decoration:none;
+    color: #00C2FF;
+    text-decoration: none;
 }
-
-
-/* FOOTER */
 
 footer{
-
-    text-align:center;
-
-    padding:40px;
-}
-
-
-/* MOBILE */
-
-@media(max-width:1000px){
-
-    .hero-layout{
-
-        grid-template-columns:1fr;
-    }
-
-    #about{
-
-        grid-template-columns:1fr;
-    }
-
-    .hero-content h1{
-
-        font-size:4rem;
-    }
-
-    nav{
-
-        flex-direction:column;
-
-        gap:20px;
-    }
-
-    nav ul{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-    }
-}
-/* SMARTPHONES & SMALL MOBILE DEVICES */
-@media (max-width: 600px) {
-    
-    /* Give content more room by reducing section side padding */
-    section {
-        padding: 80px 5%;
-    }
-
-    /* Scale down the massive hero typography so it doesn't clip */
-    .hero-content h1 {
-        font-size: 3.2rem;
-        line-height: 1.1;
-    }
-
-    .hero-title {
-        font-size: 1.5rem;
-    }
-
-    /* Wrap buttons vertically if they run out of space */
-    .hero-buttons {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-    }
-
-    .btn, .btn-secondary {
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Reduce card padding so code text actually fits */
-    .code-card {
-        padding: 25px 15px;
-        border-radius: 15px;
-    }
-
-    /* Allow the preformated code to scroll horizontally if a line is too long, 
-       instead of pushing the whole website layout wide */
-    .code-card pre {
-        font-size: 0.85rem;
-        overflow-x: auto;
-        white-space: pre-wrap; /* Wraps the code lines if they hit the edge */
-        word-wrap: break-word;
-    }
-
-    /* Center the about image container on mobile */
-    .about-image {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    /* Ensure the profile image scales naturally down */
-    .about-image img {
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-    }
-
-    /* Prevent the brand name text from getting too squeezed */
-    .brand-name {
-        font-size: 1.1rem;
-        letter-spacing: 1px;
-    }
-    
-    /* Make contact links easily clickable touch targets */
-    .contact-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
+    text-align
