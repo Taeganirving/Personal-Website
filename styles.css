@@ -277,4 +277,143 @@ nav a:hover {
 }
 
 footer{
-    text-align
+    text-align: center;
+    padding: 40px;
+}
+
+
+/* ==========================================================================
+   7. RESPONSIVE MEDIA QUERIES (TABLETS & LAPTOPS)
+   ========================================================================== */
+@media(max-width: 1000px){
+    .hero-layout,
+    #about {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1{
+        font-size: 4rem;
+    }
+
+    nav{
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES (SMARTPHONES)
+   ========================================================================== */
+@media (max-width: 600px) {
+    
+    /* Nav stays relative at the top so it doesn't mask screen content */
+    header {
+        position: relative;
+        background: #050816;
+    }
+
+    nav {
+        padding: 20px 20px;
+    }
+
+    .logo-container {
+        justify-content: center;
+        width: 100%;
+    }
+
+    nav ul {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    /* Tighten section padding so mobile screens have more workspace */
+    section {
+        padding: 60px 20px;
+    }
+
+    #hero {
+        min-height: auto;
+        padding-top: 40px;
+    }
+
+    /* Scales typography size to prevent text overflow breakouts */
+    .hero-content h1 {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    /* Code Card Content Fixes */
+    .code-card {
+        padding: 25px 15px;
+        border-radius: 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .code-card pre {
+        font-size: 0.8rem;
+        white-space: pre-wrap; /* Forces code text wrapping */
+        word-wrap: break-word;
+    }
+
+    /* Vertically stacks layout buttons smoothly */
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn, .btn-secondary {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Centers the layout container for the profile element */
+    .about-image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    .brand-name {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    /* Safe container spacing for your card animations */
+    .project-grid {
+        padding: 10px 5px;
+    }
+    
+    .project-card {
+        width: 100%;
+    }
+}
