@@ -275,26 +275,101 @@ footer{
 /* ==========================================================================
    7. RESPONSIVE MEDIA QUERIES (TABLETS & LAPTOPS)
    ========================================================================== */
-@media(max-width: 1000px){
+/* ==========================================================================
+   7. RESPONSIVE MEDIA QUERIES: LAPTOPS
+   ========================================================================== */
+
+@media (max-width: 1300px) {
+    section {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    nav {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+        gap: 50px;
+        align-items: center;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(4rem, 7vw, 5.25rem);
+    }
+
+    .code-card {
+        padding: 35px;
+        min-width: 0;
+    }
+
+    .code-card pre {
+        font-size: 0.9rem;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+    }
+
+    #about {
+        grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.5fr);
+        gap: 50px;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+    }
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES: TABLETS
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    header {
+        position: relative;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 5%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #hero {
+        min-height: auto;
+        padding-top: 80px;
+    }
+
     .hero-layout,
     #about {
         grid-template-columns: 1fr;
     }
 
-    .hero-content h1{
-        font-size: 4rem;
+    .hero-layout {
+        gap: 50px;
     }
 
-    nav{
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 5%;
+    .hero-content h1 {
+        font-size: clamp(3.5rem, 10vw, 4.5rem);
     }
 
-    nav ul{
-        flex-wrap: wrap;
+    .code-card {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .about-image {
+        display: flex;
         justify-content: center;
-        gap: 20px;
     }
 }
 
