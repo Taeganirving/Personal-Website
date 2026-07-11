@@ -1,56 +1,110 @@
+```css
 /* ==========================================================================
    1. GLOBAL STYLES & BASE SETUP
    ========================================================================== */
-*{
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Forces padding to stay inside layout widths */
+    box-sizing: border-box;
 }
 
-html{
+html {
+    width: 100%;
+    max-width: 100%;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
 }
 
-body{
+body {
+    width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     font-family: "Space Grotesk", sans-serif;
     color: #E6F1FF;
-    overflow-x: hidden; /* Prevents awkward horizontal layout scrolling */
-    background: #050816;
-    background-image: radial-gradient(rgba(255, 255, 255, .10) 1px, transparent 1px);
+    background-color: #050816;
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.10) 1px,
+        transparent 1px
+    );
     background-size: 130px 130px;
 }
 
-section{
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    overflow-wrap: anywhere;
+}
+
+section {
+    width: 100%;
+    max-width: 100%;
     padding: 120px 10%;
 }
 
-/* ==========================================================================
-   2. NAVIGATION HEADER (DESKTOP)
-   ========================================================================== */
-header{
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(18px);
-    background: rgba(5, 8, 22, .7);
+/* Prevent grid and flex children from forcing horizontal overflow */
+.hero-layout > *,
+#about > *,
+.project-grid > * {
+    min-width: 0;
 }
 
-nav{
+/* ==========================================================================
+   2. NAVIGATION HEADER
+   ========================================================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    background: rgba(5, 8, 22, 0.7);
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
     padding: 20px 10%;
 }
 
-nav ul{
+.logo-container {
     display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
     gap: 35px;
+    min-width: 0;
     list-style: none;
 }
 
-nav a{
-    color: white;
+nav li {
+    min-width: 0;
+}
+
+nav a {
+    color: #FFFFFF;
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -59,87 +113,116 @@ nav a:hover {
     color: #00C2FF;
 }
 
-
-
 /* ==========================================================================
-   3. HERO SECTION (DESKTOP)
+   3. HERO SECTION
    ========================================================================== */
-#hero{
+
+#hero {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
 }
 
-.hero-layout{
+.hero-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
     gap: 100px;
     width: 100%;
+    max-width: 100%;
     position: relative;
     z-index: 2;
 }
 
-.hero-logo{
+.hero-content {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.hero-logo {
     width: 120px;
+    height: 120px;
+    max-width: 100%;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.hero-content h1{
-    font-size: 6rem;
-    line-height: .95;
+.hero-content h1 {
+    max-width: 100%;
+    font-size: clamp(4rem, 7vw, 6rem);
+    line-height: 0.95;
+    overflow-wrap: anywhere;
 }
 
-.hero-content h2{
-    color: #00C2FF;
+.hero-content h2 {
+    max-width: 100%;
     margin: 20px 0;
+    color: #00C2FF;
+    overflow-wrap: anywhere;
 }
 
-.hero-content p{
+.hero-content p {
     max-width: 550px;
-    color: #7A8CA5;
     margin-bottom: 40px;
+    color: #7A8CA5;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
 }
 
 .hero-metadata {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
+    max-width: 100%;
     margin-bottom: 30px;
     color: #00C2FF;
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
-.hero-buttons{
+.hero-buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    max-width: 100%;
 }
 
-/* BUTTONS */
+/* ==========================================================================
+   4. BUTTONS
+   ========================================================================== */
+
 .btn,
-.btn-secondary{
+.btn-secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
     padding: 14px 30px;
     border-radius: 12px;
+    text-align: center;
     text-decoration: none;
     font-weight: 500;
-    transition: transform 0.2s, background 0.2s;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
-.btn{
+.btn {
     background: #00C2FF;
-    color: black;
+    color: #000000;
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    background: #009ecf;
+    background: #009ECF;
 }
 
-.btn-secondary{
+.btn-secondary {
     border: 1px solid #00C2FF;
-    color: white;
+    color: #FFFFFF;
 }
 
 .btn-secondary:hover {
@@ -147,149 +230,214 @@ nav a:hover {
     background: rgba(0, 194, 255, 0.1);
 }
 
-/* CODE CARD */
-.code-card{
+/* ==========================================================================
+   5. CODE CARD
+   ========================================================================== */
+
+.code-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 50px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 25px;
     backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, .05);
-    border: 1px solid rgba(255, 255, 255, .08);
-    box-shadow: 0 0 60px rgba(0, 194, 255, .08);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 60px rgba(0, 194, 255, 0.08);
 }
 
-.code-card pre{
+.code-card pre {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    color: #BFD9FF;
     line-height: 2;
-    color: #bfd9ff;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
-/* BACKGROUND GLOWS */
-.glow{
+/* ==========================================================================
+   6. BACKGROUND GLOWS
+   ========================================================================== */
+
+.glow {
     position: absolute;
     border-radius: 50%;
     filter: blur(150px);
+    pointer-events: none;
 }
 
-.glow1{
+.glow1 {
     width: 450px;
     height: 450px;
     left: -100px;
     top: 200px;
     background: #00C2FF;
-    opacity: .10;
+    opacity: 0.10;
 }
 
-.glow2{
+.glow2 {
     width: 450px;
     height: 450px;
     right: 100px;
     bottom: 0;
     background: #7C3AED;
-    opacity: .08;
+    opacity: 0.08;
 }
 
 /* ==========================================================================
-   4. ABOUT SECTION (DESKTOP)
+   7. ABOUT SECTION
    ========================================================================== */
-#about{
+
+#about {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     align-items: center;
+    gap: 80px;
 }
 
-.about-image img{
+.about-image {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.about-image img {
     width: 320px;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid rgba(0, 194, 255, 0.2);
     border-radius: 20px;
-    border: 2px solid rgba(0, 194, 255, .2);
 }
 
-.skills{
+.skills {
     display: flex;
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 15px;
+    max-width: 100%;
     margin-top: 25px;
 }
 
-.skills span{
+.skills span {
+    max-width: 100%;
     padding: 10px 18px;
+    border: 1px solid rgba(0, 194, 255, 0.2);
     border-radius: 999px;
-    border: 1px solid rgba(0, 194, 255, .2);
+    overflow-wrap: anywhere;
 }
 
 /* ==========================================================================
-   5. PROJECTS SECTION
+   8. PROJECTS SECTION
    ========================================================================== */
-.project-grid{
-    margin-top: 50px;
+
+.project-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    width: 100%;
+    max-width: 100%;
+    margin-top: 50px;
 }
 
-.project-card{
+.project-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 30px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, .04);
+    background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(20px);
-    transition: .3s;
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.3s ease;
 }
 
-.project-card:hover{
+.project-card:hover {
     transform: translateY(-8px);
 }
 
+.project-card h3,
+.project-card p,
+.project-card a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
 /* ==========================================================================
-   6. EXPERIENCE & CONTACT & FOOTER
+   9. EXPERIENCE, CONTACT, AND FOOTER
    ========================================================================== */
-.experience-list{
+
+.experience-list {
     display: grid;
     gap: 25px;
+    width: 100%;
+    max-width: 100%;
     margin-top: 40px;
 }
 
-.experience-item{
+.experience-item {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 25px;
     border-left: 3px solid #00C2FF;
-    background: rgba(255, 255, 255, .03);
+    background: rgba(255, 255, 255, 0.03);
+    overflow-wrap: anywhere;
 }
 
-.contact-links{
+.contact-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 25px;
+    max-width: 100%;
     margin-top: 30px;
 }
 
-.contact-links a{
+.contact-links a {
+    max-width: 100%;
     color: #00C2FF;
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
-footer{
+footer {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 20px;
     text-align: center;
-    padding: 40px;
 }
-
 
 /* ==========================================================================
-   7. RESPONSIVE MEDIA QUERIES (TABLETS & LAPTOPS)
+   10. TABLETS AND SMALL LAPTOPS
    ========================================================================== */
-@media(max-width: 1000px){
+
+@media (max-width: 1000px) {
+    section {
+        padding-right: 7%;
+        padding-left: 7%;
+    }
+
     .hero-layout,
     #about {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
-    .hero-content h1{
-        font-size: 4rem;
+    .hero-layout {
+        gap: 60px;
     }
 
-    nav{
+    .hero-content h1 {
+        font-size: clamp(3.5rem, 9vw, 4rem);
+    }
+
+    nav {
         flex-direction: column;
         gap: 15px;
         padding: 15px 5%;
     }
 
-    nav ul{
+    nav ul {
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
@@ -297,18 +445,26 @@ footer{
 }
 
 /* ==========================================================================
-   8. RESPONSIVE MEDIA QUERIES (SMARTPHONES)
+   11. SMARTPHONES
    ========================================================================== */
+
 @media (max-width: 600px) {
-    
-    /* Nav stays relative at the top so it doesn't mask screen content */
+    body {
+        background-size: 80px 80px;
+    }
+
     header {
         position: relative;
-        background: #050816;
+        padding-top: env(safe-area-inset-top);
+        background: rgba(5, 8, 22, 0.96);
     }
 
     nav {
-        padding: 20px 20px;
+        flex-direction: column;
+        width: 100%;
+        padding: 18px max(16px, env(safe-area-inset-right))
+            18px max(16px, env(safe-area-inset-left));
+        gap: 14px;
     }
 
     .logo-container {
@@ -316,63 +472,115 @@ footer{
         width: 100%;
     }
 
+    .brand-name {
+        max-width: 100%;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
     nav ul {
         width: 100%;
         justify-content: center;
-        gap: 15px;
+        gap: 10px 16px;
     }
 
     nav a {
-        font-size: 0.85rem;
-        letter-spacing: 1px;
+        font-size: 0.82rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
     }
 
-    /* Tighten section padding so mobile screens have more workspace */
     section {
-        padding: 60px 20px;
+        padding: 65px max(20px, env(safe-area-inset-right))
+            65px max(20px, env(safe-area-inset-left));
     }
 
     #hero {
         min-height: auto;
-        padding-top: 40px;
+        padding-top: 50px;
+        padding-bottom: 70px;
     }
 
-    /* Scales typography size to prevent text overflow breakouts */
+    .hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 45px;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-logo {
+        width: 100px;
+        height: 100px;
+    }
+
     .hero-content h1 {
-        font-size: 3rem;
-        line-height: 1.1;
+        font-size: clamp(2.5rem, 13vw, 3.25rem);
+        line-height: 1;
+    }
+
+    .hero-content h2 {
+        margin: 16px 0;
+        font-size: clamp(1.25rem, 6vw, 1.6rem);
+        line-height: 1.25;
     }
 
     .hero-title {
         font-size: 1.5rem;
     }
 
-    /* Code Card Content Fixes */
-    .code-card {
-        padding: 25px 15px;
-        border-radius: 15px;
+    .hero-content p {
         width: 100%;
         max-width: 100%;
+        margin-bottom: 30px;
+        font-size: 0.98rem;
+        line-height: 1.65;
     }
 
-    .code-card pre {
-        font-size: 0.8rem;
-        white-space: pre-wrap; /* Forces code text wrapping */
-        word-wrap: break-word;
+    .hero-metadata {
+        gap: 8px 12px;
+        margin-bottom: 25px;
+        font-size: 0.78rem;
+        letter-spacing: 0.5px;
     }
 
-    /* Vertically stacks layout buttons smoothly */
     .hero-buttons {
         flex-direction: column;
         width: 100%;
+        gap: 14px;
     }
 
-    .btn, .btn-secondary {
-        text-align: center;
+    .btn,
+    .btn-secondary {
         width: 100%;
+        padding: 14px 18px;
     }
 
-    /* Centers the layout container for the profile element */
+    .code-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px 16px;
+        border-radius: 15px;
+    }
+
+    .code-card pre {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(0.7rem, 3.4vw, 0.8rem);
+        line-height: 1.7;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    #about {
+        gap: 40px;
+    }
+
     .about-image {
         display: flex;
         justify-content: center;
@@ -385,23 +593,86 @@ footer{
         height: auto;
     }
 
-    .brand-name {
-        font-size: 1.1rem;
-        letter-spacing: 1px;
-    }
-    
-    .contact-links {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
+    .skills {
+        gap: 10px;
     }
 
-    /* Safe container spacing for your card animations */
-    .project-grid {
-        padding: 10px 5px;
+    .skills span {
+        padding: 8px 14px;
+        font-size: 0.85rem;
     }
-    
+
+    .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 0;
+        margin-top: 35px;
+    }
+
     .project-card {
         width: 100%;
+        padding: 24px 20px;
+    }
+
+    .experience-item {
+        padding: 22px 18px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .glow1 {
+        width: 280px;
+        height: 280px;
+        left: -160px;
+        top: 100px;
+    }
+
+    .glow2 {
+        width: 280px;
+        height: 280px;
+        right: -160px;
+        bottom: 50px;
+    }
+
+    footer {
+        padding-right: max(20px, env(safe-area-inset-right));
+        padding-bottom: max(40px, env(safe-area-inset-bottom));
+        padding-left: max(20px, env(safe-area-inset-left));
     }
 }
+
+/* ==========================================================================
+   12. EXTRA-SMALL PHONES
+   ========================================================================== */
+
+@media (max-width: 380px) {
+    nav ul {
+        gap: 10px 12px;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+    }
+
+    section {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.35rem;
+    }
+
+    .code-card {
+        padding: 20px 12px;
+    }
+
+    .code-card pre {
+        font-size: 0.68rem;
+    }
+}
+```
