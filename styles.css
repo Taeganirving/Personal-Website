@@ -59,19 +59,7 @@ nav a:hover {
     color: #00C2FF;
 }
 
-.logo-container{
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
 
-.logo-img{
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    object-fit: cover;
-    overflow: hidden;
-}
 
 /* ==========================================================================
    3. HERO SECTION (DESKTOP)
