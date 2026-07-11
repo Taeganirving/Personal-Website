@@ -1,81 +1,57 @@
-```css
+this is the css, fix it and send the whole thing back:
+
 /* ==========================================================================
    1. GLOBAL STYLES & BASE SETUP
    ========================================================================== */
-
-*,
-*::before,
-*::after {
+*{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Forces padding to stay inside layout widths */
 }
 
-html {
+html{
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    -webkit-text-size-adjust: 100%;
 }
 
-body {
-    width: 100%;
-    overflow-x: hidden;
+body{
     font-family: "Space Grotesk", sans-serif;
     color: #E6F1FF;
+    overflow-x: hidden; /* Prevents awkward horizontal layout scrolling */
     background: #050816;
-    background-image: radial-gradient(
-        rgba(255, 255, 255, 0.10) 1px,
-        transparent 1px
-    );
+    background-image: radial-gradient(rgba(255, 255, 255, .10) 1px, transparent 1px);
     background-size: 130px 130px;
 }
 
-img,
-video,
-canvas,
-svg {
-    max-width: 100%;
-    height: auto;
-}
-
-section {
+section{
     padding: 120px 10%;
 }
 
 /* ==========================================================================
-   2. NAVIGATION HEADER
+   2. NAVIGATION HEADER (DESKTOP)
    ========================================================================== */
-
-header {
+header{
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
     backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    background: rgba(5, 8, 22, 0.7);
+    background: rgba(5, 8, 22, .7);
 }
 
-nav {
+nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-nav ul {
+nav ul{
     display: flex;
     gap: 35px;
     list-style: none;
 }
 
-nav a {
+nav a{
     color: white;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -85,11 +61,12 @@ nav a:hover {
     color: #00C2FF;
 }
 
-/* ==========================================================================
-   3. HERO SECTION
-   ========================================================================== */
 
-#hero {
+
+/* ==========================================================================
+   3. HERO SECTION (DESKTOP)
+   ========================================================================== */
+#hero{
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -97,7 +74,7 @@ nav a:hover {
     overflow: hidden;
 }
 
-.hero-layout {
+.hero-layout{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
@@ -106,38 +83,30 @@ nav a:hover {
     z-index: 2;
 }
 
-.hero-content,
-.code-card {
-    min-width: 0;
-}
-
-.hero-logo {
+.hero-logo{
     width: 120px;
-    height: 120px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.hero-content h1 {
+.hero-content h1{
     font-size: 6rem;
-    line-height: 0.95;
+    line-height: .95;
 }
 
-.hero-content h2 {
+.hero-content h2{
     color: #00C2FF;
     margin: 20px 0;
 }
 
-.hero-content p {
+.hero-content p{
     max-width: 550px;
     color: #7A8CA5;
     margin-bottom: 40px;
-    line-height: 1.6;
 }
 
 .hero-metadata {
     display: flex;
-    flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 30px;
     color: #00C2FF;
@@ -145,40 +114,32 @@ nav a:hover {
     letter-spacing: 1px;
 }
 
-.hero-buttons {
+.hero-buttons{
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
 }
 
-/* ==========================================================================
-   4. BUTTONS
-   ========================================================================== */
-
+/* BUTTONS */
 .btn,
-.btn-secondary {
-    display: inline-block;
+.btn-secondary{
     padding: 14px 30px;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 500;
-    text-align: center;
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+    transition: transform 0.2s, background 0.2s;
 }
 
-.btn {
+.btn{
     background: #00C2FF;
     color: black;
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    background: #009ECF;
+    background: #009ecf;
 }
 
-.btn-secondary {
+.btn-secondary{
     border: 1px solid #00C2FF;
     color: white;
 }
@@ -188,172 +149,149 @@ nav a:hover {
     background: rgba(0, 194, 255, 0.1);
 }
 
-/* ==========================================================================
-   5. CODE CARD
-   ========================================================================== */
-
-.code-card {
-    width: 100%;
-    max-width: 100%;
+/* CODE CARD */
+.code-card{
     padding: 50px;
     border-radius: 25px;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 60px rgba(0, 194, 255, 0.08);
-    overflow: hidden;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 0 60px rgba(0, 194, 255, .08);
 }
 
-.code-card pre {
-    max-width: 100%;
+.code-card pre{
     line-height: 2;
-    color: #BFD9FF;
-    overflow-x: auto;
+    color: #bfd9ff;
 }
 
-/* ==========================================================================
-   6. BACKGROUND GLOWS
-   ========================================================================== */
-
-.glow {
+/* BACKGROUND GLOWS */
+.glow{
     position: absolute;
     border-radius: 50%;
     filter: blur(150px);
-    pointer-events: none;
 }
 
-.glow1 {
+.glow1{
     width: 450px;
     height: 450px;
     left: -100px;
     top: 200px;
     background: #00C2FF;
-    opacity: 0.10;
+    opacity: .10;
 }
 
-.glow2 {
+.glow2{
     width: 450px;
     height: 450px;
     right: 100px;
     bottom: 0;
     background: #7C3AED;
-    opacity: 0.08;
+    opacity: .08;
 }
 
 /* ==========================================================================
-   7. ABOUT SECTION
+   4. ABOUT SECTION (DESKTOP)
    ========================================================================== */
-
-#about {
+#about{
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 80px;
     align-items: center;
 }
 
-.about-image img {
+.about-image img{
     width: 320px;
     border-radius: 20px;
-    border: 2px solid rgba(0, 194, 255, 0.2);
+    border: 2px solid rgba(0, 194, 255, .2);
 }
 
-.skills {
+.skills{
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
     margin-top: 25px;
 }
 
-.skills span {
+.skills span{
     padding: 10px 18px;
     border-radius: 999px;
-    border: 1px solid rgba(0, 194, 255, 0.2);
+    border: 1px solid rgba(0, 194, 255, .2);
 }
 
 /* ==========================================================================
-   8. PROJECTS SECTION
+   5. PROJECTS SECTION
    ========================================================================== */
-
-.project-grid {
+.project-grid{
     margin-top: 50px;
     display: grid;
     gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.project-card {
-    min-width: 0;
+.project-card{
     padding: 30px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, .04);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: transform 0.3s ease;
+    transition: .3s;
 }
 
-.project-card:hover {
+.project-card:hover{
     transform: translateY(-8px);
 }
 
 /* ==========================================================================
-   9. EXPERIENCE, CONTACT, AND FOOTER
+   6. EXPERIENCE & CONTACT & FOOTER
    ========================================================================== */
-
-.experience-list {
+.experience-list{
     display: grid;
     gap: 25px;
     margin-top: 40px;
 }
 
-.experience-item {
+.experience-item{
     padding: 25px;
     border-left: 3px solid #00C2FF;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, .03);
 }
 
-.contact-links {
+.contact-links{
     display: flex;
-    flex-wrap: wrap;
     gap: 25px;
     margin-top: 30px;
 }
 
-.contact-links a {
+.contact-links a{
     color: #00C2FF;
     text-decoration: none;
 }
 
-footer {
+footer{
     text-align: center;
     padding: 40px;
 }
 
-/* ==========================================================================
-   10. TABLETS
-   ========================================================================== */
 
-@media (max-width: 1000px) {
+/* ==========================================================================
+   7. RESPONSIVE MEDIA QUERIES (TABLETS & LAPTOPS)
+   ========================================================================== */
+@media(max-width: 1000px){
     .hero-layout,
     #about {
         grid-template-columns: 1fr;
     }
 
-    .hero-layout {
-        gap: 60px;
-    }
-
-    .hero-content h1 {
+    .hero-content h1{
         font-size: 4rem;
     }
 
-    nav {
+    nav{
         flex-direction: column;
         gap: 15px;
         padding: 15px 5%;
     }
 
-    nav ul {
+    nav ul{
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
@@ -361,19 +299,18 @@ footer {
 }
 
 /* ==========================================================================
-   11. SMARTPHONES
+   8. RESPONSIVE MEDIA QUERIES (SMARTPHONES)
    ========================================================================== */
-
 @media (max-width: 600px) {
+    
+    /* Nav stays relative at the top so it doesn't mask screen content */
     header {
         position: relative;
         background: #050816;
-        padding-top: env(safe-area-inset-top);
     }
 
     nav {
-        padding: 18px 20px;
-        gap: 14px;
+        padding: 20px 20px;
     }
 
     .logo-container {
@@ -384,100 +321,60 @@ footer {
     nav ul {
         width: 100%;
         justify-content: center;
-        gap: 10px 15px;
+        gap: 15px;
     }
 
     nav a {
-        font-size: 0.82rem;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
     }
 
+    /* Tighten section padding so mobile screens have more workspace */
     section {
         padding: 60px 20px;
     }
 
     #hero {
         min-height: auto;
-        padding-top: 45px;
-        padding-bottom: 70px;
+        padding-top: 40px;
     }
 
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 45px;
-    }
-
-    .hero-content {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .hero-logo {
-        width: 100px;
-        height: 100px;
-    }
-
+    /* Scales typography size to prevent text overflow breakouts */
     .hero-content h1 {
-        font-size: clamp(2.6rem, 13vw, 3.2rem);
-        line-height: 1;
-        overflow-wrap: anywhere;
-    }
-
-    .hero-content h2 {
-        font-size: 1.4rem;
-        line-height: 1.25;
+        font-size: 3rem;
+        line-height: 1.1;
     }
 
     .hero-title {
         font-size: 1.5rem;
     }
 
-    .hero-content p {
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .hero-metadata {
-        gap: 8px 12px;
-        font-size: 0.78rem;
-        letter-spacing: 0.5px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-        gap: 14px;
-    }
-
-    .btn,
-    .btn-secondary {
-        width: 100%;
-        padding: 14px 20px;
-    }
-
+    /* Code Card Content Fixes */
     .code-card {
+        padding: 25px 15px;
+        border-radius: 15px;
         width: 100%;
         max-width: 100%;
-        padding: 24px 16px;
-        border-radius: 15px;
     }
 
     .code-card pre {
+        font-size: 0.8rem;
+        white-space: pre-wrap; /* Forces code text wrapping */
+        word-wrap: break-word;
+    }
+
+    /* Vertically stacks layout buttons smoothly */
+    .hero-buttons {
+        flex-direction: column;
         width: 100%;
-        max-width: 100%;
-        font-size: 0.78rem;
-        line-height: 1.7;
-        white-space: pre-wrap;
-        overflow-wrap: anywhere;
-        word-break: break-word;
     }
 
-    #about {
-        gap: 40px;
+    .btn, .btn-secondary {
+        text-align: center;
+        width: 100%;
     }
 
+    /* Centers the layout container for the profile element */
     .about-image {
         display: flex;
         justify-content: center;
@@ -487,50 +384,26 @@ footer {
     .about-image img {
         width: 100%;
         max-width: 280px;
+        height: auto;
     }
 
-    .skills {
-        gap: 10px;
+    .brand-name {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
     }
-
-    .skills span {
-        padding: 8px 14px;
-        font-size: 0.85rem;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0;
-        margin-top: 35px;
-    }
-
-    .project-card {
-        width: 100%;
-        padding: 24px 20px;
-    }
-
+    
     .contact-links {
         flex-direction: column;
         gap: 15px;
-        align-items: flex-start;
+        align-items: center;
     }
 
-    .glow1 {
-        width: 300px;
-        height: 300px;
-        left: -180px;
+    /* Safe container spacing for your card animations */
+    .project-grid {
+        padding: 10px 5px;
     }
-
-    .glow2 {
-        width: 300px;
-        height: 300px;
-        right: -180px;
-    }
-
-    footer {
-        padding: 40px 20px;
-        padding-bottom: max(40px, env(safe-area-inset-bottom));
+    
+    .project-card {
+        width: 100%;
     }
 }
-```
